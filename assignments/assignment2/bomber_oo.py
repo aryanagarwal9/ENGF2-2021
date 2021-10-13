@@ -169,7 +169,7 @@ class Plane():
     def move(self):
         self.position.move(-4 * speed, 0)
         if self.position.getX() < -self.width:
-            self.position.move(CANVAS_WIDTH, 40)
+            self.position.move(CANVAS_WIDTH + self.width, 40)
             #ensure we don't go off the bottom of the screen
             if self.position.getY() > CANVAS_HEIGHT:
                 self.position.Y = CANVAS_HEIGHT
@@ -307,7 +307,7 @@ class Display(Frame):
 
     def update(self):
         if self.game_running:
-            # self.score = self.score + self.plane.move()
+            self.score = self.score + self.plane.move()
             self.check_plane()
             self.bomb.move()
             self.check_bomb()
