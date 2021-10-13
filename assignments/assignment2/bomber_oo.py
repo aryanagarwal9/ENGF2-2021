@@ -307,7 +307,7 @@ class Display(Frame):
 
     def update(self):
         if self.game_running:
-            self.score = self.score + self.plane.move()
+            # self.score = self.score + self.plane.move()
             self.check_plane()
             self.bomb.move()
             self.check_bomb()
