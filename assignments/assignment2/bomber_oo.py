@@ -91,7 +91,7 @@ class Bomb():
         self.canvas = canvas
         self.falling = False
         self.drawn = False
-        self.position = Point(50,50)
+        self.position = Point(500,500)
         ''' self.points contains x,y coordinate pairs to draw a bomb with top left
             corner at position 0,0'''
         self.points = [0,0, 10,0, 5,5, 10,10, 10,20, 5,22, 0,20, 0,10, 5,5]
