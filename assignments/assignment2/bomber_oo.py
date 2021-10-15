@@ -116,7 +116,7 @@ class Bomb():
 
     ''' drop the bomb from the plane '''
     def drop(self, point):
-        if self.falling and self.position.Y<CANVAS_HEIGHT:
+        if self.falling and self.position.Y<CANVAS_HEIGHT: #Fixed BUG1
             # don't drop again while bomb is still falling
             return
         self.falling = True
@@ -169,7 +169,7 @@ class Plane():
     def move(self):
         self.position.move(-4 * speed, 0)
         if self.position.getX() < -self.width:
-            self.position.move(CANVAS_WIDTH + self.width, 40)
+            self.position.move(CANVAS_WIDTH + self.width, 40) # Fixed BUG2
             #ensure we don't go off the bottom of the screen
             if self.position.getY() > CANVAS_HEIGHT:
                 self.position.Y = CANVAS_HEIGHT
@@ -223,7 +223,7 @@ class Display(Frame):
             building.cleanup()
 
         #create the new ones
-        for building_num in range(0, 1000//SPACING):
+        for building_num in range(0, 1000//SPACING): #Fixed BUG3
             height = self.rand.randint(10,500) #random number between 10 and 500
             self.buildings.append(Building(self.canvas, building_num, height,
                                            self.building_width))
