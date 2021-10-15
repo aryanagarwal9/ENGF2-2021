@@ -223,7 +223,7 @@ class Display(Frame):
             building.cleanup()
 
         #create the new ones
-        for building_num in range(0, 1200//SPACING):
+        for building_num in range(0, 1000//SPACING):
             height = self.rand.randint(10,500) #random number between 10 and 500
             self.buildings.append(Building(self.canvas, building_num, height,
                                            self.building_width))
