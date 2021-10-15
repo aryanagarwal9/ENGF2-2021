@@ -79,7 +79,8 @@ class Building():
     def shrink(self):
         self.height = self.height - 50
         self.canvas.delete(self.main_rect)
-        self.main_rect = self.canvas.create_rectangle(self.x, CANVAS_HEIGHT, self.x + self.width, CANVAS_HEIGHT-self.height, fill="brown")
+        if self.height > 0: #Fixed BUG4
+            self.main_rect = self.canvas.create_rectangle(self.x, CANVAS_HEIGHT, self.x + self.width, CANVAS_HEIGHT-self.height, fill="brown")
 
     def cleanup(self):
         self.canvas.delete(self.main_rect)
@@ -256,7 +257,7 @@ class Display(Frame):
                 or building.is_inside(plane_body_bottom)
                 or building.is_inside(plane_wing)):
                 self.game_over()
-        if plane_body_bottom.getY() == CANVAS_HEIGHT and plane_body_bottom.getX() < 20:
+        if plane_body_bottom.getY() > CANVAS_HEIGHT - 30 and plane_body_bottom.getX() < 20: #Fixed BUG4
             self.plane_landed()
 
     ''' game_over is called when the plane crashes to stop play and display the
