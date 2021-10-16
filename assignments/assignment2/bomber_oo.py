@@ -257,7 +257,7 @@ class Display(Frame):
                 or building.is_inside(plane_body_bottom)
                 or building.is_inside(plane_wing)):
                 self.game_over()
-        if plane_body_bottom.getY() > CANVAS_HEIGHT - 30 and plane_body_bottom.getX() < 20: #Fixed BUG4
+        if plane_body_bottom.getY() > CANVAS_HEIGHT - 30 and plane_body_bottom.getX() < 20: #Fixed BUG5
             self.plane_landed()
 
     ''' game_over is called when the plane crashes to stop play and display the
